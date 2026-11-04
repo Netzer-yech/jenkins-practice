@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent { label 'test' }      // run only on a node that has the label "test"
     triggers {
         pollSCM('* * * * *')   // check the repo every ~1 minutes
 }
