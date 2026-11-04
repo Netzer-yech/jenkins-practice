@@ -1,8 +1,6 @@
 pipeline {
     agent { label 'test' }      // run only on a node that has the label "test"
-    triggers {
-        pollSCM('* * * * *')   // check the repo every ~1 minutes
-}
+    triggers { pollSCM('* * * * *') }   // check the repo every ~1 minutes
     stages {
         stage('Run File') {
             steps {
@@ -10,4 +8,7 @@ pipeline {
 		    python3 print_name.py                
                    '''
             }
-        }}}
+        }
+    }
+}
+
